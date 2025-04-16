@@ -1,3 +1,4 @@
+
 const path = require('path');
 const fs = require('fs/promises');
 const Products = require('./products')
@@ -10,7 +11,7 @@ function handleRoot(req, res) {
 
 
 async function listProducts(req, res) {
-
+  
   const { offset = 0, limit = 25, tag } = req.query
   console.log(offset,limit)
   res.json(await Products.list({
@@ -27,7 +28,7 @@ async function getProduct (req, res, next) {
   if (!product) {
     return next()
   }
-
+  
   return res.json(product)
 }
 
